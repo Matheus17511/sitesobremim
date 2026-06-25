@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,16 +12,38 @@
             max-width: 800px;
             text-align: center;
             margin: 0  auto;
-            padding: 16px;
+            padding: 20px;
+        }
+        small{
+            font-weight: bold;
         }
         main{
             max-width: 800px;
-            margin-top: 10px;
+            margin: 0  auto;
+        }
+        .imagem-palito{
+            width: 120px;
+            height: 150px;
+        }
+        button{
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+        article div{
+            margin-top: 20px;
             margin-bottom: auto;
             margin-left: auto;
-            margin-right: auto;
+            margin-right: 120px;
+            border-style: solid;
+            border-color: black;
+            border-radius: 0 30px 30px 30px;
 
         }
+        article{
+        display: flex;
+        }
+
+    
     </style>
 </head>
 <body>
@@ -33,10 +53,48 @@
         <p>Esse site vai ser usado para falar coisas sobre mim!</p> 
     </header>
     <main>
-    <h2>Primeiro post.</h2>
+        <article>
+        <img class="imagem-palito" src="stickman-waving.png" alt="imagem de um homem de palito dando oi." >  
+ <div>      
+ <h2>A eletiva que estou fazendo</h2>
+        <small>Feito Por: Matheus Ribeiro</small>
+    <p>Eu estou fazendo uma aula de eletiva de desenho e pintura em tela, eu acho bem legal!</p>
+    <button>👍 <span>0</span></button>
+    <button>👎 <span>0</span></button>
+    </div> 
+</article>
+<article>
+            <img class="imagem-palito" src="stickman-waving.png" alt="imagem de um homem de palito dando oi." >
+            <div>
+            <h2>Primeiro post.</h2>
     <small>Feito Por: Matheus Ribeiro</small>
     <p>Ola, Esse é meu primeiro post que eu conseguir fazer usando HTML! Aqui esta um fato sobre mim: Eu não tenho a minima ideia de HTML! :D</p>
-    <img src="stickman-waving.png" alt="imagem de uma pessoa dando oi." >
+    <button>👍 <span>0</span></button>
+    <button>👎 <span>0</span></button>
+    </div>
+
+    </article>
+
     </main>
+    <script>
+        const likes = document.querySelectorAll("button"); // crei um variavel chamado "likes" e fiz ele ser relacionado a os dois botões
+        likes.forEach(function(like) { //fiz que por cada botão que tem a função "like" tenha essa ação
+        let curtiu = false; //fazer uma variavel chamado "curtiu" e deixa como falso.
+
+        like.addEventListener("click", botaoclicado);  // adicionei um evento á essa função para dar uma ação se o botão ser clicado, fazendo uma outra função a esse evento.
+
+          function botaoclicado() {
+        console.log("botao apertado");// essa função vai mandar uma mensagem para o console, dizendo que foi apertado.
+        let texto = like.querySelector("span");// fiz um outro variavel chamado "texto" e relacionei ele com o numero de likes dentro de span.
+        if (curtiu === false) {
+            texto.textContent++;// faz que o numero adiciona 1.
+            curtiu = true; // depois, é tornado o variavel de antes em verdadeiro, ou "true"
+        } else {
+            texto.textContent--// faz que o numero subtrai 1.
+            curtiu = false; // torna "curtiu" em falso.
+        }
+        }});
+      
+    </script>
 </body>
 </html>
